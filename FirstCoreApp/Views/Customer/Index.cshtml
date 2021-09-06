@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Welcome to customer controller action view </h1>
+<h2 class="text-success">@ViewBag.msg</h2>
+<h2>@ViewData["msg"]</h2>
+
+<ol>
+    @foreach(var cc in ViewBag.courses)
+    {
+        <li>@cc</li>
+    }
+</ol>
