@@ -2,14 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FirstCoreApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstCoreApp.Controllers
 {
     public class CustomerController : Controller
     {
+        // private CustomerService customer;
+
+        ICustomer customer;
+        public CustomerController( ICustomer _customer)
+        {
+            customer = _customer;
+
+          //  customer = new CustomerService();
+        }
+
         public IActionResult Index()
         {
+            /*
             string message = "i am dynamic message";
             ViewBag.msg = message;
             ViewData["msg"] = message;
@@ -24,11 +36,12 @@ namespace FirstCoreApp.Controllers
             };
 
             ViewBag.courses = courses;
+            */
 
-
-
-
-            return View();
+            //var cc = customer.GetCustomers();
+              var cc = customer.GetModel();
+              ViewBag.msg=customer.Message();
+            return View(cc);
         }
     }
 }

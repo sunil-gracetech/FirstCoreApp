@@ -1,15 +1,67 @@
-﻿
+﻿@*@model IEnumerable<FirstCoreApp.Models.Customer>*@
+@model FirstCoreApp.Models.ViewModel
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Welcome to customer controller action view </h1>
-<h2 class="text-success">@ViewBag.msg</h2>
-<h2>@ViewData["msg"]</h2>
+@*<h1>Welcome to customer controller action view </h1>
+    <h2 class="text-success">@ViewBag.msg</h2>
+    <h2>@ViewData["msg"]</h2>
 
-<ol>
-    @foreach(var cc in ViewBag.courses)
-    {
-        <li>@cc</li>
-    }
-</ol>
+    <ol>
+        @foreach(var cc in ViewBag.courses)
+        {
+            <li>@cc</li>
+        }
+    </ol>*@
+<h2>Message : @ViewBag.msg</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cust in Model.Customers)
+        {
+            <tr>
+                <td>@cust.Id</td>
+                <td>@cust.Name</td>
+                <td>@cust.Email</td>
+                <td>@cust.Mobile</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
+            <th>City</th>
+            <th>Pin</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cust in Model.Addresses)
+        {
+            <tr>
+                <td>@cust.Id</td>
+                <td>@cust.Address1</td>
+                <td>@cust.Address2</td>
+                <td>@cust.City</td>
+                <td>@cust.Pin</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
