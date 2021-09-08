@@ -43,5 +43,18 @@ namespace FirstCoreApp.Controllers
               ViewBag.msg=customer.Message();
             return View(cc);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Customer cust)
+        {
+            customer.AddCustomer(cust);
+            return View();
+        }
+
     }
 }

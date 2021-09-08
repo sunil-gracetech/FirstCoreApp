@@ -33,7 +33,9 @@ namespace FirstCoreApp
             });
 
         
-            services.AddTransient<ICustomer, CustomerService>();
+            //services.AddTransient<ICustomer, CustomerService>();
+            // services.AddSingleton<ICustomer, CustomerService>();
+             services.AddScoped<ICustomer, CustomerService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
