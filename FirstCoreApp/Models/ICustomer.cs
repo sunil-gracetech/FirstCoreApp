@@ -7,8 +7,8 @@ namespace FirstCoreApp.Models
 {
    public  interface ICustomer
     {
-        string Message();
-        ViewModel GetModel();
+        //string Message();
+        //ViewModel GetModel();
         List<Customer> GetCustomers();
         Customer AddCustomer(Customer cc);
     }

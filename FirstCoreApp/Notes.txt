@@ -1,0 +1,26 @@
+﻿using entityframework in asp.net core:-  microsoft provided entity framework core version to communicate with database. to work with database we need several packege from nugate packege manager.
+1- entityframework core
+2- entity framework sql server
+3- entity framework tool
+-------------------------------------------------------
+Note: these packeges are supported version specific. so be carefull to install packege as per asp.net core version.
+----------------------------------------------------------------------------------------------
+Note: -you can work with entity framework in 3 different-different approach-
+	1- code first approach	
+	2- Model first approach
+	3- database first approach
+-------------------------------------------------------------------------
+1-Code first approach-	
+steps to configure entity framework core:- 
+step-1- first of all create your model class, which map with database table. like-customer,products,shop,employee etc.
+
+step-2- install above required packege from nugat.
+
+step-3- now create context class , which inherit DBContext class of entity framework.
+	also override base class constructor or override base class onconfiguring method. and 	provide db connect to connect db.
+4- now do the migration using command line -
+	a- enable-migrations
+	b- add-migration migrationName
+	c- update-database
+5- now entity framework context class is ready to use, you can instanitate this class anywhere and can use it.
+-------------------------------------------------------------------------------------------------------------------

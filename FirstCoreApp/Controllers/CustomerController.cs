@@ -39,8 +39,9 @@ namespace FirstCoreApp.Controllers
             */
 
             //var cc = customer.GetCustomers();
-              var cc = customer.GetModel();
-              ViewBag.msg=customer.Message();
+            //var cc = customer.GetModel();
+            //ViewBag.msg=customer.Message();
+            var cc = customer.GetCustomers();
             return View(cc);
         }
 
@@ -53,7 +54,7 @@ namespace FirstCoreApp.Controllers
         public ActionResult Create(Customer cust)
         {
             customer.AddCustomer(cust);
-            return View();
+            return RedirectToAction("Index");
         }
 
     }

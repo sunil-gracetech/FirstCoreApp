@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FirstCoreApp.Models;
+using FirstCoreApp.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,7 +33,7 @@ namespace FirstCoreApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-        
+            DbConnectionConfig.dbconnection = Configuration.GetConnectionString("DefaultConnection");
             //services.AddTransient<ICustomer, CustomerService>();
             // services.AddSingleton<ICustomer, CustomerService>();
              services.AddScoped<ICustomer, CustomerService>();
