@@ -45,6 +45,20 @@ namespace FirstCoreApp.Controllers
             return View(cc);
         }
 
+        public ActionResult Delete(int id)
+        {
+            bool result=customer.DeleteCustomer(id);
+            if(result)
+            {
+                ViewBag.message = "customer deleted successfully !";
+            }
+            else
+            {
+                ViewBag.message = "customer not deleted successfully !";
+
+            }
+            return RedirectToAction("Index");
+        }
         public ActionResult Create()
         {
             return View();
@@ -57,5 +71,17 @@ namespace FirstCoreApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Edit(int id)
+        {
+            var result = customer.GetCustomer(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Customer cc)
+        {
+            customer.UpdateCustomer(cc);
+            return RedirectToAction("Index");
+        }
     }
 }

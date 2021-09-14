@@ -11,5 +11,8 @@ namespace FirstCoreApp.Models
         //ViewModel GetModel();
         List<Customer> GetCustomers();
         Customer AddCustomer(Customer cc);
+        bool DeleteCustomer(int id);
+        Customer GetCustomer(int id);
+        Customer UpdateCustomer(Customer cc);
     }
 }

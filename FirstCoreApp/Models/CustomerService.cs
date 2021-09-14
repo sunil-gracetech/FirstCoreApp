@@ -8,9 +8,10 @@ namespace FirstCoreApp.Models
     public class CustomerService:ICustomer
     {
         private ApplicationContext context;
-        public CustomerService()
+        public CustomerService(ApplicationContext _context)
         {
-            context = new ApplicationContext();
+            // context = new ApplicationContext();
+            context = _context;
         }
 
         public Customer AddCustomer(Customer cc)
@@ -23,6 +24,35 @@ namespace FirstCoreApp.Models
         public List<Customer> GetCustomers()
         {
             var cc = context.Customers.ToList();
+            return cc;
+        }
+
+        public bool DeleteCustomer(int id)
+        {
+            var cust = context.Customers.SingleOrDefault(e => e.Id == id);
+            if (cust != null)
+            {
+                context.Customers.Remove(cust);
+                context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public Customer GetCustomer(int id)
+        {
+            var cust = context.Customers.SingleOrDefault(e => e.Id == id);
+            return cust;
+        }
+
+        public Customer UpdateCustomer(Customer cc)
+        {
+            context.Customers.Update(cc);
+            context.SaveChanges();
             return cc;
         }
         /*

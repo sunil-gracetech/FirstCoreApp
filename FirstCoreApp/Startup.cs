@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -33,7 +34,12 @@ namespace FirstCoreApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            DbConnectionConfig.dbconnection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationContext>(options => {
+
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+           // DbConnectionConfig.dbconnection = Configuration.GetConnectionString("DefaultConnection");
             //services.AddTransient<ICustomer, CustomerService>();
             // services.AddSingleton<ICustomer, CustomerService>();
              services.AddScoped<ICustomer, CustomerService>();
