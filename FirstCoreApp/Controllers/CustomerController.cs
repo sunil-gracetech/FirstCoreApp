@@ -67,8 +67,20 @@ namespace FirstCoreApp.Controllers
         [HttpPost]
         public ActionResult Create(Customer cust)
         {
-            customer.AddCustomer(cust);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                if (customer.ValidateUser(cust.Mobile))
+                {
+                    ModelState.AddModelError("Mobile", "mobile number already registered !");
+                    return View(cust);
+                }
+                else
+                {
+                    customer.AddCustomer(cust);
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(cust);
         }
 
         public ActionResult Edit(int id)

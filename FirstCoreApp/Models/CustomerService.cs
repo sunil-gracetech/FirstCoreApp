@@ -55,6 +55,11 @@ namespace FirstCoreApp.Models
             context.SaveChanges();
             return cc;
         }
+
+        public bool ValidateUser(string mobile)
+        {
+            return context.Customers.Any(e => e.Mobile == mobile);
+        }
         /*
 List<Customer> Customers;
 List<Address> Addresses;

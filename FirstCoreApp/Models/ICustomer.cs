@@ -14,5 +14,6 @@ namespace FirstCoreApp.Models
         bool DeleteCustomer(int id);
         Customer GetCustomer(int id);
         Customer UpdateCustomer(Customer cc);
+        bool ValidateUser(string mobile);
     }
 }
